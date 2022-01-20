@@ -101,8 +101,11 @@ img {
 		}
 }
 
-.bio p {
+.review p {
 		font-size: 1em;
+}
+
+.slideIn {
 		animation: slideIn 1500ms forwards;
 }
 

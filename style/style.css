@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
+
+*, *::before, *::after {
+		box-sizing: border-box;
+}
+
+body {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100vw;
+		height: 100vh;
+		background: whitesmoke;
+		font-family: 'Barlow', sans-serif;
+}
+
+main {
+		padding: 0 2vw;
+}
+
+h2 {
+		color: royalblue;
+		padding: 0;
+		text-align: center;
+		font-size: 1.5em;
+		margin: 0;
+}
+
+.line {
+		border: none;
+		width: 4em;
+		border-radius: 4vw;
+		border-top: 2px solid royalblue;
+		margin: 1vw auto;
+}
+
+.back-circle {
+		background: #95b7ff;
+		width: 7em;
+		height: 7.1em;
+		border-radius: 100%;
+		position: relative;
+		margin: 1em 0;
+}
+
+.image {
+		position: absolute;
+		top: 0;
+		left: -0.5em;
+		right: 0;
+		bottom: 0;		
+}
+
+img {
+		width: 7em;
+		height: 7.1em;
+		border-radius: 100%;
+}
+
+.container {
+		display: flex;
+		flex-direction: column;
+		place-items: center;
+		background: white;
+		padding: 0.5em 2em;
+		border-radius: 3vw;
+		margin-top: 1em;
+}
+
+/*Name*/
+.back-circle ~ p {
+		font-size: 1.5em;
+		font-weight: bold;
+		margin: 0;		
+		padding: 0;
+}
+
+/*Job*/
+.back-circle ~ p + div + p {
+		font-size: 1em;
+		padding: 3vw;
+		margin-top: 1em;
+		border-radius: 0.5em;
+		box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+		text-align: center;
+		width: 100%;
+		color: royalblue;
+		animation: SlideInRight 1500ms forwards;
+}
+
+@keyframes SlideInRight {
+		0% {
+				transform: translateX(10em);
+				opacity: 0;
+		}
+		
+		100% {
+				transform: translateX(0);
+				opacity: 1;
+		}
+}
+
+.bio p {
+		font-size: 1em;
+		animation: slideIn 1500ms forwards;
+}
+
+@keyframes slideIn {
+		0% {
+				transform: translateX(-20em);
+				opacity: 0;
+		}
+		
+		100% {
+				transform: translateX(0);
+				opacity: 1;
+		}
+}
+
+.buttons {
+		display: flex;
+		gap: 0 2em;
+}
+
+button {
+		background: none;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		font-size: 1.5em;
+		color: royalblue;
+		width: 2em;
+		height: 2em;
+		border-radius: 100%;
+		user-select: none;
+		webkit-user-select: none;
+		transition: all 700ms;
+}
+
+button:focus,
+button:hover {
+		transform: scale(1.2) rotate(360deg);
+		border: 1px solid royalblue;
+}

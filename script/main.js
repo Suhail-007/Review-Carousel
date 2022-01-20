@@ -1,5 +1,11 @@
 let Persons = [
 		{
+				name: "Suhail Qureshi",
+				job: "Front-End Developer",
+				img: "Images/Picsart_22-01-19_14-16-37-406.png",
+				review: "docendi deseruisse legere falli volumus ludus fermentumpericula errem nisi reprehendunt tortor nibh vitae esse alienum offendit brute viris rutrum non veri adipiscing aliquip adipiscing oporteat qui contentiones suas quis iaculis omittantur elitr quaestio antiopam aliquet graece."			
+		},
+		{
 				name: "Emma Cook",
 				job: "UI/UX Designer",
 				img: "Images/Person1.jpg",
@@ -37,17 +43,21 @@ function changeReview(person) {
 		job.innerText = Persons[person].job;
 }
 
+window.addEventListener('DOMContentLoaded', () => {
+		changeReview(currentPerson)
+})
+
 let nextBtn = document.querySelector('.next-btn');
 let prevBtn = document.querySelector('.prev-btn');
 
 nextBtn.addEventListener('click', () => {
-		changeReview(currentPerson);
 		currentPerson++;
-		if (currentPerson > Persons.length -1)	currentPerson = 0;
+		if (currentPerson > Persons.length -1) {	currentPerson = 0; }
+		changeReview(currentPerson);
 });
 
 prevBtn.addEventListener('click', () => {
-  	changeReview(currentPerson);  	
   currentPerson--;
-  	if (currentPerson < 0) currentPerson = Persons.length -1;
+  	if (currentPerson < 0) {currentPerson = Persons.length -1;}
+  	changeReview(currentPerson);
 });

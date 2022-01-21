@@ -35,6 +35,57 @@ job = document.querySelector('[data-job]');
 //counter variable
 let currentPerson = 0;
 
+
+let reviewDiv = document.querySelector('.review');
+
+function SlideIn() {
+		reviewDiv.animate([
+				//keyframes
+				{transform: 'translateX(-20em)', opacity: 0},
+				{transform: 'translateX(0)', opacity: 1}
+		],
+		{
+				//animation methods
+				duration: 900,
+				fill: 'forwards'
+		})
+		
+				job.animate([
+				//keyframes
+				{transform: 'translateX(20em)', opacity: 0},
+				{transform: 'translateX(0)', opacity: 1}
+		],
+		{
+				//animation methods
+				duration: 900,
+				fill: 'forwards'
+		})
+}
+
+function SlideInReverse() {
+		reviewDiv.animate([
+				//keyframes
+				{transform: 'translateX(20em)', opacity: 0},
+				{transform: 'translateX(0)', opacity: 1}
+		],
+		{
+				//animation methods
+				duration: 900,
+				fill: 'forwards'
+		})
+		
+				job.animate([
+				//keyframes
+				{transform: 'translateX(-20em)', opacity: 0},
+				{transform: 'translateX(0)', opacity: 1}
+		],
+		{
+				//animation methods
+				duration: 900,
+				fill: 'forwards'
+		})
+}
+
 //let's start from the top element to the bottom one
 function changeReview(person) {
 		image.src = Persons[person].img;
@@ -53,11 +104,13 @@ let prevBtn = document.querySelector('.prev-btn');
 nextBtn.addEventListener('click', () => {
 		currentPerson++;
 		if (currentPerson > Persons.length -1) {	currentPerson = 0; }
+		SlideIn();
 		changeReview(currentPerson);
 });
 
 prevBtn.addEventListener('click', () => {
   currentPerson--;
   	if (currentPerson < 0) {currentPerson = Persons.length -1;}
-  	changeReview(currentPerson);
+  	SlideInReverse();
+  	changeReview(currentPerson);  	
 });

@@ -25,6 +25,8 @@ let Persons = [
 		}
 ]
 
+
+
 //declare some variables
 let image, name, review, job;
 image = document.querySelector('.image > img');
@@ -35,10 +37,9 @@ job = document.querySelector('[data-job]');
 //counter variable
 let currentPerson = 0;
 
-
 let reviewDiv = document.querySelector('.review');
 
-function SlideIn() {
+function SlideInFromLeft() {
 		reviewDiv.animate([
 				//keyframes
 				{transform: 'translateX(-20em)', opacity: 0},
@@ -62,7 +63,7 @@ function SlideIn() {
 		})
 }
 
-function SlideInReverse() {
+function SlideInFromRight() {
 		reviewDiv.animate([
 				//keyframes
 				{transform: 'translateX(20em)', opacity: 0},
@@ -95,7 +96,8 @@ function changeReview(person) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-		changeReview(currentPerson)
+		changeReview(currentPerson);
+		SlideInFromLeft();
 })
 
 let nextBtn = document.querySelector('.next-btn');
@@ -104,13 +106,13 @@ let prevBtn = document.querySelector('.prev-btn');
 nextBtn.addEventListener('click', () => {
 		currentPerson++;
 		if (currentPerson > Persons.length -1) {	currentPerson = 0; }
-		SlideIn();
+		SlideInFromLeft();
 		changeReview(currentPerson);
 });
 
 prevBtn.addEventListener('click', () => {
   currentPerson--;
   	if (currentPerson < 0) {currentPerson = Persons.length -1;}
-  	SlideInReverse();
+  	SlideInFromRight();
   	changeReview(currentPerson);  	
 });

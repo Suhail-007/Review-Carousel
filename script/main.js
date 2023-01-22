@@ -1,31 +1,29 @@
 let Persons = [
-		{
-				name: "Suhail Qureshi",
-				job: "Front-End Developer",
-				img: "Images/Picsart_22-01-19_14-16-37-406.png",
-				review: "docendi deseruisse legere falli volumus ludus fermentumpericula errem nisi reprehendunt tortor nibh vitae esse alienum offendit brute viris rutrum non veri adipiscing aliquip adipiscing oporteat qui contentiones suas quis iaculis omittantur elitr quaestio antiopam aliquet graece."			
+  {
+    name: "Suhail Qureshi",
+    job: "Front-End Developer",
+    img: "Images/Picsart_22-01-19_14-16-37-406.png",
+    review: "docendi deseruisse legere falli volumus ludus fermentumpericula errem nisi reprehendunt tortor nibh vitae esse alienum offendit brute viris rutrum non veri adipiscing aliquip adipiscing oporteat qui contentiones suas quis iaculis omittantur elitr quaestio antiopam aliquet graece."
 		},
-		{
-				name: "Emma Cook",
-				job: "UI/UX Designer",
-				img: "Images/Person1.jpg",
-				review: "mediocritatem scripta dolorum docendi himenaeos torquent diam quisque idque est veri maluisset gubergren posse pertinax dicant tritani definitiones posse quam."
+  {
+    name: "Emma Cook",
+    job: "UI/UX Designer",
+    img: "Images/Person1.jpg",
+    review: "mediocritatem scripta dolorum docendi himenaeos torquent diam quisque idque est veri maluisset gubergren posse pertinax dicant tritani definitiones posse quam."
 		},
-		{
-				name: "Ed Sheeran",
-				job: "Web Designer",
-				img: "Images/Person2.jpg",
-				review: "docendi liber mel urna mel maluisset ludus suavitate urbanitas prodesset mattis delicata repudiandae moderatius solum."
+  {
+    name: "Ed Sheeran",
+    job: "Web Designer",
+    img: "Images/Person2.jpg",
+    review: "docendi liber mel urna mel maluisset ludus suavitate urbanitas prodesset mattis delicata repudiandae moderatius solum."
 		},
-		{
-				name: "Anni taylor",
-				job: "Full Stack Developer",
-				img: "Images/Person3.jpg",
-				review: "hac expetenda posuere quod convenire parturient explicari definiebas magna molestie viris quot cu quis viverra electram ante facilisis intellegebat tincidunt sententiae parturient patrioque harum molestiae duo hendrerit postea mucius cetero."
+  {
+    name: "Anni taylor",
+    job: "Full Stack Developer",
+    img: "Images/Person3.jpg",
+    review: "hac expetenda posuere quod convenire parturient explicari definiebas magna molestie viris quot cu quis viverra electram ante facilisis intellegebat tincidunt sententiae parturient patrioque harum molestiae duo hendrerit postea mucius cetero."
 		}
 ]
-
-
 
 //declare some variables
 let image, name, review, job;
@@ -40,79 +38,81 @@ let currentPerson = 0;
 let reviewDiv = document.querySelector('.review');
 
 function SlideInFromLeft() {
-		reviewDiv.animate([
+  reviewDiv.animate([
 				//keyframes
-				{transform: 'translateX(-20em)', opacity: 0},
-				{transform: 'translateX(0)', opacity: 1}
+    { transform: 'translateX(-20em)', opacity: 0 },
+    { transform: 'translateX(0)', opacity: 1 }
 		],
-		{
-				//animation methods
-				duration: 900,
-				fill: 'forwards'
-		})
-		
-				job.animate([
+  {
+    //animation methods
+    duration: 900,
+    fill: 'forwards'
+  })
+
+  job.animate([
 				//keyframes
-				{transform: 'translateX(20em)', opacity: 0},
-				{transform: 'translateX(0)', opacity: 1}
+    { transform: 'translateX(20em)', opacity: 0 },
+    { transform: 'translateX(0)', opacity: 1 }
 		],
-		{
-				//animation methods
-				duration: 900,
-				fill: 'forwards'
-		})
+  {
+    //animation methods
+    duration: 900,
+    fill: 'forwards'
+  })
 }
 
 function SlideInFromRight() {
-		reviewDiv.animate([
+  reviewDiv.animate([
 				//keyframes
-				{transform: 'translateX(20em)', opacity: 0},
-				{transform: 'translateX(0)', opacity: 1}
+    { transform: 'translateX(20em)', opacity: 0 },
+    { transform: 'translateX(0)', opacity: 1 }
 		],
-		{
-				//animation methods
-				duration: 900,
-				fill: 'forwards'
-		})
-		
-				job.animate([
+  {
+    //animation methods
+    duration: 900,
+    fill: 'forwards'
+  })
+
+  job.animate([
 				//keyframes
-				{transform: 'translateX(-20em)', opacity: 0},
-				{transform: 'translateX(0)', opacity: 1}
+    { transform: 'translateX(-20em)', opacity: 0 },
+    { transform: 'translateX(0)', opacity: 1 }
 		],
-		{
-				//animation methods
-				duration: 900,
-				fill: 'forwards'
-		})
+  {
+    //animation methods
+    duration: 900,
+    fill: 'forwards'
+  })
 }
 
 //let's start from the top element to the bottom one
 function changeReview(person) {
-		image.src = Persons[person].img;
-		name.innerText = Persons[person].name;
-		review.innerText = Persons[person].review;
-		job.innerText = Persons[person].job;
+  const {img, name, review, job} = Persons[person];
+  
+  image.src = img;
+  name.innerText = name;
+  review.innerText = review;
+  job.innerText = job;
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-		changeReview(currentPerson);
-		SlideInFromLeft();
+  changeReview(currentPerson);
+  SlideInFromLeft();
 })
 
 let nextBtn = document.querySelector('.next-btn');
 let prevBtn = document.querySelector('.prev-btn');
 
 nextBtn.addEventListener('click', () => {
-		currentPerson++;
-		if (currentPerson > Persons.length -1) {	currentPerson = 0; }
-		SlideInFromLeft();
-		changeReview(currentPerson);
+  currentPerson++;
+  if (currentPerson > Persons.length - 1) { currentPerson = 0; }
+  SlideInFromLeft();
+  changeReview(currentPerson);
 });
 
 prevBtn.addEventListener('click', () => {
   currentPerson--;
-  	if (currentPerson < 0) {currentPerson = Persons.length -1;}
-  	SlideInFromRight();
-  	changeReview(currentPerson);  	
+  if (currentPerson < 0) { currentPerson = Persons.length - 1; }
+  SlideInFromRight();
+  changeReview(currentPerson);
 });
